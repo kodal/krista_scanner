@@ -30,10 +30,12 @@ class _ScannerPageState extends State<ScannerPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+
         appBar: AppBar(
+          leadingWidth: 16,
           title: Text(widget.title),
           centerTitle: false,
-          backgroundColor: Colors.black.withOpacity(0.2),
+          backgroundColor: Colors.white.withOpacity(0.2),
           actions: [
             Padding(
               padding: const EdgeInsets.symmetric(
@@ -42,6 +44,12 @@ class _ScannerPageState extends State<ScannerPage> {
               ),
               child: ElevatedButton(
                 onPressed: () => null,
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(38, 38),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -53,12 +61,6 @@ class _ScannerPageState extends State<ScannerPage> {
                     SizedBox(width: 4),
                     Text('10/20'),
                   ],
-                ),
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
                 ),
               ),
             ),
