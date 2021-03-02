@@ -8,11 +8,9 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 class ScannerPage extends StatefulWidget {
   ScannerPage({
     Key key,
-    this.title,
     this.type = ScannerType.selling,
     this.items,
   }) : super(key: key);
-  final String title;
   final ScannerType type;
   final List<Item> items;
 
@@ -39,7 +37,7 @@ class _ScannerPageState extends State<ScannerPage> {
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           leadingWidth: 16,
-          title: Text(widget.title),
+          title: Text(widget.type.name),
           centerTitle: false,
           backgroundColor: Colors.white.withOpacity(0.2),
           actions: [
@@ -117,3 +115,18 @@ class _ScannerPageState extends State<ScannerPage> {
 }
 
 enum ScannerType { coming, revision, selling }
+
+extension ScannerTypeExt on ScannerType {
+  String get name {
+    switch(this){
+      case ScannerType.coming:
+        return 'Приходивание';
+      case ScannerType.revision:
+        return 'Ревизия';
+      case ScannerType.selling:
+        return 'Продажа';
+      default:
+        return null;
+    }
+  }
+}

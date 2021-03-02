@@ -25,22 +25,33 @@ class HomePage extends StatelessWidget {
                   child: Column(
                     children: [
                       ElevatedButton(
-                        child: Text('Приходивание'),
+                        child: Text(ScannerType.coming.name),
                         onPressed: () => Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (_) => ScannerPage(title: 'Приходивание',),
+                            builder: (_) =>
+                                ScannerPage(type: ScannerType.coming),
                           ),
                         ),
                       ),
                       SizedBox(height: 16),
                       ElevatedButton(
-                        child: Text('Продажа'),
-                        onPressed: () => null,
+                        child: Text(ScannerType.selling.name),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                ScannerPage(type: ScannerType.selling),
+                          ),
+                        ),
                       ),
                       SizedBox(height: 16),
                       ElevatedButton(
-                        child: Text('Ревизия'),
-                        onPressed: () => null,
+                        child: Text(ScannerType.revision.name),
+                        onPressed: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) =>
+                                ScannerPage(type: ScannerType.revision),
+                          ),
+                        ),
                       ),
                       SizedBox(height: 56),
                       ElevatedButton(
